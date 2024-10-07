@@ -7,4 +7,4 @@ class Solution(object):
         return False
 
 teste = Solution()
-print(teste.isPalindrome("121"))
+print(teste.isPalindrome("10"))
