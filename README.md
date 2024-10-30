@@ -28,5 +28,5 @@ black . --check
 After running the above commands, run following command, it will check all files on your project 
 and shows errors based on [PEP8](https://peps.python.org/pep-0008/).
 ```shell
-flake8 .\src\
+flake8 .
 ```
