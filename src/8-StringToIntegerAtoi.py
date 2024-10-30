@@ -2,14 +2,14 @@ class Solution(object):
     def myAtoi(self, s):
         is_positive = False
         is_negative = False
-        non_zero_found = False
+        # non_zero_found = False
         number_found = False
         string = ""
         upper_limit = (2**31) - 1
         lower_limit = 2**31
         numbers = "1234567890"
 
-        index = 0
+        # index = 0
         for char in s:
             if char not in numbers and number_found:
                 break
@@ -23,7 +23,8 @@ class Solution(object):
                 number_found = True
                 string += char
                 if char != "0":
-                    non_zero_found = True
+                    pass
+                    # non_zero_found = True
             elif char == " " and len(string) == 0:
                 pass
             else:
