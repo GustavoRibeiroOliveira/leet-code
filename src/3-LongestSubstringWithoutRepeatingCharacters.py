@@ -1,6 +1,5 @@
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
-        length = len(s)
         repeatedCharacters = []
         maxLength = 0
         tempMaxLength = 0
