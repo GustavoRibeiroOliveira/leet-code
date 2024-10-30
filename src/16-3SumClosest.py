@@ -1,7 +1,7 @@
 class Solution(object):
     def threeSumClosest(self, nums, target):
         nums.sort()
-        closest_sum = float('inf')
+        closest_sum = float("inf")
 
         for i in range(len(nums)):
             if i > 0 and nums[i] == nums[i - 1]:
@@ -28,4 +28,4 @@ class Solution(object):
 
 
 teste = Solution()
-print(teste.threeSumClosest(nums=[-1,2,1,-4], target=1))
+print(teste.threeSumClosest(nums=[-1, 2, 1, -4], target=1))
