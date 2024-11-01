@@ -19,4 +19,4 @@ class Solution:
 
 
 teste = Solution()
-print(teste.generateParenthesis(n = 3))
+print(teste.generateParenthesis(n=3))
