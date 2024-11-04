@@ -3,6 +3,7 @@ class Solution:
         length = len(s)
         if length != len(goal):
             return False
+        # return goal in s + s
         if s == goal:
             return True
         for index in range(length):
