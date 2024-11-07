@@ -12,4 +12,4 @@ class Solution:
 
 
 teste = Solution()
-print(teste.largestCombination(candidates = [16,17,71,62,12,24,14]))
+print(teste.largestCombination(candidates=[16, 17, 71, 62, 12, 24, 14]))
