@@ -31,3 +31,13 @@ SELECT today.id as Id FROM Weather as yesterday CROSS JOIN Weather as today WHER
 SELECT  A.machine_id, ROUND(AVG(B.timestamp - A.timestamp), 3) AS processing_time FROM Activity A JOIN Activity B
     ON A.machine_id = B.machine_id AND A.process_id = B.process_id AND A.activity_type != B.activity_type
     WHERE A.activity_type = 'start' GROUP BY A.machine_id;
+
+-- 577. Employee Bonus
+SELECT e.name, IF(b.bonus < 1000, b.bonus, NULL) AS bonus FROM Employee as e LEFT JOIN Bonus as b on b.empId = e.empId
+    WHERE b.bonus < 1000 or b.bonus IS NULL
+
+-- 1280. Students and Examinations
+SELECT s.student_id, s.student_name, su.subject_name, COUNT(e.student_id) AS attended_exams FROM Students as s
+    CROSS JOIN Subjects AS su LEFT JOIN Examinations AS e ON s.student_id = e.student_id
+    AND su.subject_name = e.subject_name GROUP BY s.student_id, s.student_name, su.subject_name
+    ORDER BY s.student_id, su.subject_name
