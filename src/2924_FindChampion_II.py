@@ -1,5 +1,5 @@
 class Solution:
-    def findChampion(self, n: int, edges: list[ list[ int ] ]) -> int:
+    def findChampion(self, n: int, edges: list[list[int]]) -> int:
         number_of_stronger_nodes_per_n = [0] * n
         minumun_value = 1000
         index_champion = -1
@@ -17,5 +17,6 @@ class Solution:
             return -1
         return index_champion
 
+
 teste = Solution()
-print(teste.findChampion(n = 2, edges = [[1,0]]))
+print(teste.findChampion(n=2, edges=[[1, 0]]))
