@@ -1,17 +1,34 @@
 class Solution:
-    def maxEqualRowsAfterFlips(self, matrix: list[list[int]]) -> int:
-        mp = {}
-        for row in matrix:
-            pattern = 0
-            term0 = row[0]
-            for j, x in enumerate(row):
-                pattern |= (x ^ term0) << j
-            if pattern not in mp:
-                mp[pattern] = 1
-            else:
-                mp[pattern] += 1
-        return max(mp.values())
+    def updateDistances(self, graph, current, distances):
+        newDist = distances[current] + 1
+
+        for neighbor in graph[current]:
+            if distances[neighbor] <= newDist:
+                continue
+
+            distances[neighbor] = newDist
+            self.updateDistances(graph, neighbor, distances)
+
+    def shortestDistanceAfterQueries(
+        self, n: int, queries: list[list[int]]
+    ) -> list[int]:
+        distances = [n - 1 - i for i in range(n)]
+
+        graph = [[] for _ in range(n)]
+        for i in range(n - 1):
+            graph[i + 1].append(i)
+
+        answer = []
+
+        for source, target in queries:
+            graph[target].append(source)
+            distances[source] = min(distances[source], distances[target] + 1)
+            self.updateDistances(graph, source, distances)
+
+            answer.append(distances[0])
+
+        return answer
 
 
 teste = Solution()
-print(teste.maxEqualRowsAfterFlips(matrix=[[0, 1], [1, 1]]))
+print(teste.shortestDistanceAfterQueries(n=5, queries=[[2, 4], [0, 2], [0, 4]]))
